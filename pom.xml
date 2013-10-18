@@ -20,15 +20,15 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>br.com.cybereagle</groupId>
-		<artifactId>android-projects</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+		<artifactId>base-android-project</artifactId>
+		<version>1.0.0</version>
 	</parent>
 	<artifactId>androidlibrary</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
 	<name>Cyber Eagle Android Library</name>
     <description>Android library project used by Cyber Eagle android projects.</description>
-    <url>https://github.com/CyberEagle/OpenProjects/tree/master/android-projects/library</url>
+    <url>https://github.com/CyberEagle/AndroidLibrary</url>
 
     <licenses>
         <license>

@@ -17,17 +17,15 @@
 package br.com.cybereagle.androidlibrary.ui;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import br.com.cybereagle.androidlibrary.ui.RoboActionBarActivity;
 import br.com.cybereagle.androidlibrary.ui.helper.RetainedActivityHelper;
 import br.com.cybereagle.androidlibrary.ui.interfaces.RetainedActivity;
 import roboguice.activity.RoboFragmentActivity;
 
-public abstract class RetainedRoboFragmentActivity extends RoboFragmentActivity implements RetainedActivity {
+public abstract class RetainedRoboActionBarActivity extends RoboFragmentActivity implements RetainedActivity {
 
     private RetainedActivityHelper retainedActivityHelper;
 
-    protected RetainedRoboFragmentActivity() {
+    protected RetainedRoboActionBarActivity() {
         this.retainedActivityHelper = new RetainedActivityHelper(this);
     }
 

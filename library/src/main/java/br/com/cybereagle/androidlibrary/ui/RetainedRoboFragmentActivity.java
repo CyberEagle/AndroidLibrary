@@ -17,26 +17,16 @@
 package br.com.cybereagle.androidlibrary.ui;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import br.com.cybereagle.androidlibrary.annotation.Retained;
+import android.support.v4.app.FragmentActivity;
 import br.com.cybereagle.androidlibrary.ui.helper.RetainedActivityHelper;
 import br.com.cybereagle.androidlibrary.ui.interfaces.RetainedActivity;
-import br.com.cybereagle.commonlibrary.util.ReflectionUtils;
-import roboguice.inject.InjectView;
+import roboguice.activity.RoboFragmentActivity;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-
-public abstract class RetainedRoboActionBarActivity extends RoboActionBarActivity implements RetainedActivity {
+public abstract class RetainedRoboFragmentActivity extends RoboFragmentActivity implements RetainedActivity {
 
     private RetainedActivityHelper retainedActivityHelper;
 
-    protected RetainedRoboActionBarActivity() {
+    protected RetainedRoboFragmentActivity() {
         this.retainedActivityHelper = new RetainedActivityHelper(this);
     }
 

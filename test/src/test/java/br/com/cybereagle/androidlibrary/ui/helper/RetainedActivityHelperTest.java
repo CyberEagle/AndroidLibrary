@@ -7,8 +7,10 @@ import br.com.cybereagle.androidlibrary.ui.interfaces.RetainedActivity;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
+import org.robolectric.util.ActivityController;
 
 import static org.junit.Assert.assertEquals;
 import static org.robolectric.Robolectric.shadowOf;
@@ -17,19 +19,21 @@ import static org.robolectric.Robolectric.shadowOf;
 @Config(manifest = Config.NONE)
 public class RetainedActivityHelperTest {
 
+    private ActivityController<TestRetainedActivity> activityController;
     private TestRetainedActivity testRetainedActivity;
     private RetainedActivityHelper retainedActivityHelper;
 
     @Before
     public void setUp() throws Exception {
-        testRetainedActivity = new TestRetainedActivity();
+        activityController = Robolectric.buildActivity(TestRetainedActivity.class);
+        testRetainedActivity = activityController.get();
         retainedActivityHelper = new RetainedActivityHelper(testRetainedActivity);
         testRetainedActivity.retainedActivityHelper = retainedActivityHelper;
     }
 
     @Test
     public void shouldRetainOnlyAnnotatedFieldsOnConfigurationChanges(){
-        shadowOf(testRetainedActivity).create();
+        activityController.create();
 
         assertEquals(-1, testRetainedActivity.retainedCounter);
         assertEquals(-1, testRetainedActivity.unretainedCounter);
@@ -40,7 +44,8 @@ public class RetainedActivityHelperTest {
         assertEquals(0, testRetainedActivity.retainedCounter);
         assertEquals(0, testRetainedActivity.unretainedCounter);
 
-        shadowOf(testRetainedActivity).recreate();
+//        activityController.restart();
+        testRetainedActivity.recreate();
 
         assertEquals(0, testRetainedActivity.retainedCounter);
         assertEquals(-1, testRetainedActivity.unretainedCounter);

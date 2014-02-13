@@ -55,5 +55,6 @@ dependencies {
     compile 'com.android.support:support-v4:19.0.+'
     compile 'org.roboguice:roboguice:2.0'
     compile project(':library')
+    instrumentTestCompile 'br.com.cybereagle:androidtestlibrary:1.0.0-SNAPSHOT'
     testCompile 'br.com.cybereagle:androidtestlibrary:1.0.0-SNAPSHOT'
 }

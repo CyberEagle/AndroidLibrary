@@ -8,8 +8,6 @@ import javax.inject.Singleton;
 
 public interface AndroidModule {
 
-    @Provides
-    @Singleton
     @ForApplication
     Context provideApplicationContext();
 }

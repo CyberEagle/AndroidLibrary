@@ -26,8 +26,12 @@ import javax.inject.Inject;
 @ContextSingleton
 public class ConnectivityUtils {
 
-    @Inject
     private ConnectivityManager connectivityManager;
+
+    @Inject
+    public ConnectivityUtils(ConnectivityManager connectivityManager) {
+        this.connectivityManager = connectivityManager;
+    }
 
     public boolean isOnline() {
         NetworkInfo netInfo = connectivityManager.getActiveNetworkInfo();

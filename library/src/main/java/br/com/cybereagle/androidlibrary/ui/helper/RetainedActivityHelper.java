@@ -52,7 +52,7 @@ public class RetainedActivityHelper {
         Class<?> clazz = retainedActivity.getClass();
         List<Field> fields = ReflectionUtils.getInstanceVariables(clazz);
         for (Field field : fields) {
-            if (field.getAnnotation(Retained.class) != null) {
+            if (field.isAnnotationPresent(Retained.class)) {
                 try {
                     retainedMap.put(field.getName(), ReflectionUtils.get(field, retainedActivity));
                 } catch (InvocationTargetException e) {
